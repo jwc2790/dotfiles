@@ -57,6 +57,19 @@ alias vi="/usr/local/bin/vim"
 # RUBY ALIASES
 alias be="bundle exec "
 
+# Docker Aliases
+alias dk='docker'
+alias dkp='docker ps'
+alias dka='docker ps -a'
+alias dki='docker images'
+alias dkk='docker kill'
+alias dkr='docker rm'
+alias dkrmi='docker rmi'
+alias dkb='docker build'
+alias dkc='docker-compose'
+alias dku='docker-compose up -d'
+alias dm='docker-machine'
+
 #############################################
 ## APPEARANCE
 #############################################
@@ -67,6 +80,7 @@ green='\033[92m'
 yellow='\033[93m'
 white='\033[39m'
 reset='\033[0m'
+
 
 function color_prompt {
 	local prompt_tail="\[${red}\]> "

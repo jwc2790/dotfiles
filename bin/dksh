@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+if [[ -z "$1" ]]; then
+  echo "Please specify the container on which to run bash interactively."
+  exit
+fi
+
+docker exec -it "$1" bash
