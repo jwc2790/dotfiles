@@ -17,7 +17,14 @@ export ANDROID_HOME=/usr/local/opt/android-sdk
 #############################################
 ## add bin folder to $PATH so it can be run
 #############################################
+
 export PATH="$PATH:/usr/local/sbin:$HOME/bin"
+
+#############################################
+## SSH Forward Agent for OSX Sierra
+#############################################
+
+ssh-add -A &> /dev/null
 
 #############################################
 ## ALIASES
@@ -31,7 +38,6 @@ alias push='git push'
 alias pull='git pull'
 alias stash='git stash'
 alias apply='git stash apply'
-alias ch='checkout'
 alias g='git'
 alias ga='git add'
 alias gaa='git add -A'
@@ -43,19 +49,13 @@ alias skip='git rebase --skip'
 
 # BASH ALIASES
 alias cl='clear'
+alias ..='cd ../'
+alias ...='cd ../../'
+alias ....='cd ../../../'
+alias .....='cd ../../../../'
 
 # List
-alias ll='ls -alG'
-alias lr='ls -R'
-
-# This uses the brew version of vim
-# because some of the plugins require
-# an updated version of vim
-alias vim="/usr/local/bin/vim"
-alias vi="/usr/local/bin/vim"
-
-# RUBY ALIASES
-alias be="bundle exec "
+alias ll='ls -al'
 
 # Docker Aliases
 alias dk='docker'
@@ -71,25 +71,14 @@ alias dku='docker-compose up -d'
 alias dm='docker-machine'
 
 #############################################
-## APPEARANCE
+## Node - nvm
 #############################################
-
-#  COLORS
-red='\033[91m'
-green='\033[92m'
-yellow='\033[93m'
-white='\033[39m'
-reset='\033[0m'
-
-
-function color_prompt {
-	local prompt_tail="\[${red}\]> "
-	local last_color="\[${reset}\]"
-	export PS1="$prompt_tail$last_color "
-}
-color_prompt
 
 export NVM_DIR="/Users/jcuffney/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+#############################################
+## Ruby Version Manager - rvm
+#############################################
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
