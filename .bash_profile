@@ -1,4 +1,5 @@
-############################################
+###########################################
+#############################################
 ##
 ##	Joseph Cuffney
 ##	josephcuffney@gmail.com
@@ -19,6 +20,28 @@ export ANDROID_HOME=/usr/local/opt/android-sdk
 #############################################
 
 export PATH="$PATH:/usr/local/sbin:$HOME/bin"
+
+#############################################
+## Terminal Prompt Customization
+#############################################
+
+# COLORS
+
+COLOR_PREFIX='\[\033['
+COLOR_SUFFIX='\[m'
+
+# NOTE: "" strings can be evaluated whereas
+# 	'' strings cannot be evaluated
+
+#GREEN="${COLOR_PREFIX}33${COLOR_SUFFIX}"
+#BLUE="${COLOR_PREFIX}57${COLOR_SUFFIX}"
+#RED="${COLOR_PREFIX}83${COLOR_SUFFIX}"
+#RESET="${COLOR_PREFIX}0${COLOR_SUFFIX}"
+
+# TERMINAL PROMPT
+
+#export PS1="${BLUE}\u@\h ${RED}\w ${GREEN}>>>${RESET} "
+export PS1="\u@\h \w >>> "
 
 #############################################
 ## SSH Forward Agent for OSX Sierra
@@ -71,6 +94,12 @@ alias dku='docker-compose up -d'
 alias dm='docker-machine'
 
 #############################################
+## Craftman
+#############################################
+
+alias craftman="/Users/jcuffney/.craftman/bin/craftman"
+
+#############################################
 ## Node - nvm
 #############################################
 
@@ -81,4 +110,14 @@ export NVM_DIR="/Users/jcuffney/.nvm"
 ## Ruby Version Manager - rvm
 #############################################
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+# [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+#############################################
+## Iterm 2 variables
+#############################################
+
+# Set CLICOLOR if you want Ansi Colors in iTerm2 
+export CLICOLOR=1
+
+# Set colors to match iTerm2 Terminal Colors
+export TERM=xterm-256color
