@@ -1,0 +1,12 @@
+#!/bin/bash
+
+printf "\n"
+docker images | awk -v OFS='\t' '
+{
+  if ($1 == "REPOSITORY") {
+    printf(ENVIRON["Underscore"]ENVIRON["Italic"]ENVIRON["Cyan"]"%-28s %-10s %-15s %-17s %-9s\n"ENVIRON["Plain"], "Repository", "Tag", "Image ID", "Created", "Size")
+    printf "\n"
+  } else {
+    printf(ENVIRON["Bone"]"%-28s %-10s %-15s %-2s %7s %-6s %s %s\n", $1, $2, $3, $4, $5, $6, $7, $8)
+  }
+}'

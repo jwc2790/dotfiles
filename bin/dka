@@ -1,0 +1,16 @@
+#!/bin/bash
+
+printf "\n"
+docker ps -a | awk -v OFS='\t' '
+{
+  if ($1 == "CONTAINER") {
+    printf(ENVIRON["Underscore"]ENVIRON["Italic"]ENVIRON["Cyan"]"%-16s %-40s\n"ENVIRON["Plain"], "Container", "Name")
+    printf "\n"
+  } else {
+    if ($0 ~ /Up/) {
+      printf(ENVIRON["Bone"]"%-16s %s\n"ENVIRON["Plain"], $1, $NF)
+    } else {
+      printf(ENVIRON["DarkBone"]"%-16s %s\n"ENVIRON["Plain"], $1, $NF)
+    }
+  }
+}'

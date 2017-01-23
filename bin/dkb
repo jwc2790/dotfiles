@@ -1,0 +1,10 @@
+#!/bin/bash
+
+printf "\n"
+if [[ $# -eq 0 ]]; then
+  dockerfile_dir=$(echo `pwd`)
+else
+  dockerfile_dir=$(echo "`pwd`/$1")
+fi
+
+docker build $dockerfile_dir

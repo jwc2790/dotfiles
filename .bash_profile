@@ -7,8 +7,6 @@
 ##
 #############################################
 
-echo "source $(brew --prefix nvm)/nvm.sh" >> ~/.profile
-
 #############################################
 ## Android (brew android sdk) env variable
 #############################################
@@ -25,23 +23,7 @@ export PATH="$PATH:/usr/local/sbin:$HOME/bin"
 ## Terminal Prompt Customization
 #############################################
 
-# COLORS
-
-COLOR_PREFIX='\[\033['
-COLOR_SUFFIX='\[m'
-
-# NOTE: "" strings can be evaluated whereas
-# 	'' strings cannot be evaluated
-
-#GREEN="${COLOR_PREFIX}33${COLOR_SUFFIX}"
-#BLUE="${COLOR_PREFIX}57${COLOR_SUFFIX}"
-#RED="${COLOR_PREFIX}83${COLOR_SUFFIX}"
-#RESET="${COLOR_PREFIX}0${COLOR_SUFFIX}"
-
-# TERMINAL PROMPT
-
-#export PS1="${BLUE}\u@\h ${RED}\w ${GREEN}>>>${RESET} "
-export PS1="\u@\h \w >>> "
+export PS1="\[\e[36m\]\u\[\e[m\]@\[\e[36m\]\h\[\e[m\] \[\e[36m\]\w\[\e[m\] > "
 
 #############################################
 ## SSH Forward Agent for OSX Sierra
@@ -83,7 +65,7 @@ alias ll='ls -al'
 # Docker Aliases
 alias dk='docker'
 alias dkp='docker ps'
-alias dka='docker ps -a'
+alias dkpa='docker ps -a'
 alias dki='docker images'
 alias dkk='docker kill'
 alias dkr='docker rm'
@@ -91,7 +73,16 @@ alias dkrmi='docker rmi'
 alias dkb='docker build'
 alias dkc='docker-compose'
 alias dku='docker-compose up -d'
-alias dm='docker-machine'
+alias dkm='docker-machine'
+
+# React Native Aliases
+alias rn='react-native'
+alias rna='react-native run-android'
+
+# Yarn Aliases
+alias yi='yarn install'
+alias ya='yarn add'
+alias ys='yarn start'
 
 #############################################
 ## Craftman

@@ -1,8 +1,16 @@
-#!/usr/bin/env sh
+#!/bin/bash
 
-if [[ -z "$1" ]]; then
-  echo "Please specify the container on which to run bash interactively."
-  exit
+printf "\n"
+if [[ $# -eq 0 ]]; then
+  printf "${Red}Please specify a container to shell into.\n"
+else
+  id=$(docker ps | grep "$1" | awk '{print $1}')
+  if [[ $id == '' ]]; then
+    name_or_id="$1"
+  elif [[ $id =~ $'\n' ]]; then
+    printf "${Red}\nMore than one container found. Try using a longer name.\n${Plain}"
+  else
+    name_or_id="$id"
+  fi
+  docker exec -it "$name_or_id" bash || docker exec -it "$name_or_id" sh
 fi
-
-docker exec -it "$1" bash
