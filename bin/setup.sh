@@ -47,8 +47,15 @@ nvm install node # latest
 nvm use node
 
 # ############################
+# Install Global Node Packages 
+# ############################
+
+npm i -g create-react-app
+
+# ############################
 # Install Python Versions 
 # ############################
 
 pyenv install 2.7.8
 pyenv install 3.6.0
+
