@@ -9,6 +9,7 @@ brew cask install zeplin
 # Programming Languages
 brew install r
 brew install nvm
+brew install yarn
 brew install jenv
 brew install pyenv
 

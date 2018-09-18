@@ -28,6 +28,11 @@ brew install zsh zsh-completions
 sudo dscl . -create /Users/jcff3 UserShell /usr/local/bin/zsh
 
 # ############################
+# Xcode cli utilities
+# ############################
+xcode-select --install
+
+# ############################
 # install brew packages
 # ############################
 
