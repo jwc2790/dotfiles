@@ -8,6 +8,7 @@
 2. `git init`
 3. `git remote add origin git@github.com:jwc2790/dotfiles.git`
 4. `git pull origin master`
+5. `git branch --set-upstream-to=origin/master`
 
 ## Description:
 
