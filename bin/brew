@@ -1,0 +1,53 @@
+#! /bin/bash
+
+echo "Installing brew..."
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+echo "Installing brew cask..."
+brew tap caskroom/cask
+
+echo "Installing packages"
+brew cask
+
+echo "updating homebrew"
+brew update
+brew upgrade
+
+# Utilities
+brew cask install 1password
+brew cask install flux
+
+# Design Tools
+brew cask install zeplin
+
+# Programming Languages
+# brew cask install java
+# brew install node
+brew install r
+brew install nvm
+
+#Dev Tools
+brew install git
+brew cask install iterm2
+
+# IDE's
+brew cask install visual-studio-code
+brew cask install intellij-idea
+brew cask install atom
+
+#Communication Apps
+brew cask install slack
+brew cask install skype
+
+#Web Tools
+brew cask install google-chrome
+brew cask install firefox
+
+#File Storage
+brew cask install google-drive
+
+# Writing Apps
+brew cask install boostnote 
+
+#Entertainment
+brew cask install vlc

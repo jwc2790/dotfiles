@@ -7,14 +7,6 @@
 ##
 #############################################
 
-~/.tmux.conf
-
-#############################################
-## Android (brew android sdk) env variable
-#############################################
-
-export ANDROID_HOME=/usr/local/opt/android-sdk
-
 #############################################
 ## add bin folder to $PATH so it can be run
 #############################################
@@ -79,33 +71,17 @@ alias dkc='docker-compose'
 alias dku='docker-compose up -d'
 alias dkm='docker-machine'
 
-# React Native Aliases
-alias rn='react-native'
-alias rna='react-native run-android'
-
 # Yarn Aliases
 alias yi='yarn install'
 alias ya='yarn add'
 alias ys='yarn start'
 
 #############################################
-## Craftman
-#############################################
-
-alias craftman="/Users/jcuffney/.craftman/bin/craftman"
-
-#############################################
 ## Node - nvm
 #############################################
 
-export NVM_DIR="/Users/jcuffney/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
-#############################################
-## Ruby Version Manager - rvm
-#############################################
-
-# [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
 
 #############################################
 ## Iterm 2 variables

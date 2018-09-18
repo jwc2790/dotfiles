@@ -8,5 +8,10 @@
 !.vim/autoload
 !bin/
 !bin/*
+!.zshrc
+!.brewfile
+!.nvmrc
+
 # Ignore all DS_STORE files
 **/.DS_Store
+.aws/credentials

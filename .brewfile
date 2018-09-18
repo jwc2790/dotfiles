@@ -1,0 +1,38 @@
+
+# Utilities
+brew cask install 1password
+brew cask install flux
+
+# Design Tools
+brew cask install zeplin
+
+# Programming Languages
+brew install r
+brew install nvm
+brew install jenv
+brew install pyenv
+
+# Dev Tools
+brew install git
+
+# IDE's
+brew cask install visual-studio-code
+brew cask install intellij-idea
+brew cask install atom
+
+# Communication Apps
+brew cask install slack
+brew cask install skype
+
+# Web Tools
+brew cask install google-chrome
+brew cask install firefox
+
+# File Storage
+brew cask install google-backup-and-sync
+
+# Writing Apps
+brew cask install boostnote 
+
+# Entertainment
+brew cask install vlc
