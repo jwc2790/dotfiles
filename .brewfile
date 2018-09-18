@@ -18,6 +18,7 @@ brew install cask docker
 
 # Productivity Tools
 brew cask install alfred
+brew cask install specticale
 
 # IDE's
 brew cask install visual-studio-code
