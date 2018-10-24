@@ -1,0 +1,17 @@
+# GIT ALIASES
+alias gs='git status'
+alias gch='git checkout'
+alias gb='git branch'
+alias push='git push'
+alias pull='git pull'
+alias g='git'
+alias ga='git add'
+alias gaa='git add -A'
+alias gcm='git commit -m '
+alias gc='git commit '
+
+# BASH ALIASES
+alias cl='clear'
+alias ..='cd ../'
+alias ...='cd ../../'
+alias ll='ls -al'
