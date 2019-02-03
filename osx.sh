@@ -3,14 +3,23 @@
 DOTFILES_PATH=~/Cuffney/dotfiles
 
 main() {
-  # ask for sudo credentials
-  ask_for_sudo
-  # install the macos package manger; homebrew
-  install_homebrew
-  # clone the dotfiles repository
-  clone_dotfiles
-  # Installing all packages in Dotfiles repository's Brewfile
-  install_packages_with_brewfile
+    # ask for sudo credentials
+    ask_for_sudo
+    # install the macos package manger; homebrew
+    install_homebrew
+    # clone the dotfiles repository
+    clone_dotfiles
+    # Installing all packages in Dotfiles repository's Brewfile
+    install_packages_with_brewfile
+    # Setting up macOS defaults
+    setup_macOS_defaults
+    # Updating login items
+    update_login_items
+    # todo: python via pyenv
+    # todo: nodejs via nvm
+    # todo: vim
+    # todo: tmux
+    # todo: visual studio code plugins, default config
 }
 
 
@@ -71,7 +80,7 @@ function pull_latest() {
 }
 
 function install_packages_with_brewfile() {
-    BREW_FILE_PATH="${DOTFILES_PATH}/brew/macOS.Brewfile"
+    BREW_FILE_PATH="${DOTFILES_PATH}/src/brewfile"
     info "Installing packages within ${BREW_FILE_PATH}"
     if brew bundle check --file="$BREW_FILE_PATH" &> /dev/null; then
         success "Brewfile's dependencies are already satisfied "
@@ -82,6 +91,32 @@ function install_packages_with_brewfile() {
             error "Brewfile installation failed"
             exit 1
         fi
+    fi
+}
+
+function setup_macOS_defaults() {
+    info "Updating macOS defaults"
+
+    current_dir=$(pwd)
+    cd ${DOTFILES_PATH}/src/os
+    if bash defaults.sh; then
+        cd $current_dir
+        success "macOS defaults updated successfully"
+    else
+        cd $current_dir
+        error "macOS defaults update failed"
+        exit 1
+    fi
+}
+
+function update_login_items() {
+    info "Updating login items"
+
+    if osascript ${DOTFILES_PATH}/src/os/login_items.applescript &> /dev/null; then
+        success "Login items updated successfully "
+    else
+        error "Login items update failed"
+        exit 1
     fi
 }
 

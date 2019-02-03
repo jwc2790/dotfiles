@@ -8,6 +8,10 @@
 curl --silent https://raw.githubusercontent.com/jwc2790/dotfiles/master/osx.sh | bash
 ```
 
+#### Manual Tasks:
+  - [] Login to `1password`
+  - sign into chrome to sync extensions / plugins
+
 ## Goals
 
 - to not require a mouse for development 
