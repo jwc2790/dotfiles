@@ -1,6 +1,6 @@
 #! /bin/bash
 
-DOTFILES_PATH="~/Cuffney/dotfiles"
+DOTFILES_PATH=~/Cuffney/dotfiles
 
 main() {
   # ask for sudo credentials
