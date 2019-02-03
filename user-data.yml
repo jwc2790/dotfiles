@@ -1,0 +1,59 @@
+#cloud-config
+
+users:
+  - name: jcuffney
+    ssh-authorized-keys:
+      - ssh-rsa  AAAAB3NzaC1yc2EAAAADAQABAAACAQDKzHTIgpWuNwKnr3o8+V6EwPIlrdlVh2s2gdqfME40ySUW0PwWfzjGZ0fjOp42AUDuDoOgfx6ixO/+LT1+ujTciKwB+8JDd5Tx+gTz1yy2lbQxgkBJJ6Icw5XjEEXRbAsqFRBhv0Mz7eLIJIUNuJXYNCZSJbOEl8c7MdhBcFzsoV0LqsRkyqkLy1nzuR5kM+F/JTieUlWKdhl8aizRxk+MHYoUoyl+nfZl+30c2QJlYhfR9zXhVp7yX+NFXHbu2oA9asMzka9ZOE9ZNKv4iB+GwuWNX5OdgjAWzLiJSTV5knc1L5vlny3KfHLlx4HhiDt3WXmpdHC4Z7rGOnfcaDjoN5AgIeeCydZ3FdiidK36uZtQrzzGWDD5+vicLWPaC6sG/FcI7G+syHeunP7SPb9Nd5XCpYFFy6qiXirfUjGaSneXwBaPSVKfMabuytUVcagpj4m2ZM9Mnuh+/ImFw+oeCeR4eF14TeG8V0RFVvk89CVP5j+eHSwRq0iRUgleoPU6Hr0GqAGeYdNq86VprjNkdRef3Z0Q+IEk2qnqKpHsIo/pQP6vWk/J9BA6YN3CmIcxEayQLFjc+p4X0TCFQDHR8R2wStAU6voFhMsEzPFupjOMUPjzjIq9ZhX8vwe4dxVdtRxCM61R6SJ2dQkwze0NL3A3SRWlpOVo12MuBXZXAw== josephcuffney@gmail.com
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQD06bDknzn/JqwCOj7Gpyjd7qb/2o4DZPcx9H74iEBcGs0qaAXNyLQBQca6War3YUMkl/PDBveTF2nvHDyC4aWiGewMBF7Fmvsn60GuudBZ6lmhNnK6gpXbpWlNlMqvmBW5arBBnPddOvr94oqCLRDMdyuhP8v3trzLrXPw8R6l7NFikRQ3I8Uk6hM4zje+KJ+XnErvrzk3aN0xpw9K6digaaKjNbvmNnqU3fzIr8NeEHeMj86PlIpdr1eTVtDKBYACfG//qyL31SWm23jCA6tgp1RaX8NwRb0/GyBF3ZTSIcpEjmnoTwy1x0Y5vM+p5MxcbPzqhiJ6SoZxaKp7JQDP8iNOP032bMz+BfSdpu2dy0XRO4KNUGbHOy4VX3KilAqgDlrOSAZPC+bq/xuT96GZjZf1DOtPWZCcEl/QZHoAnwgdPaUC7bOkShVNRx6ynNBYUaIovlsAgkpQ+GNcJ9HUQCyNqpEdNuAwAiK8sGH9KtKRupSeAFKM3sLTn3cOepZngzyziH77mDS/QBeV5PYLHcc4m2nospwcEalr2hXL3WTzoBY3bUOJmSlSiZSLb4Tj8hw1fzmISpWeOtclry3Rxv3Yudj2/NK6I2qiJeUs1qML3SGgLgZjqef/j5QGboDjQKGXfYqgLMSZkY57fz+iOkaCKa4dROQYesKS3hOpHQ== joe@theprogrampdx.com
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    groups: sudo
+    shell: /bin/bash
+
+# this will update the apt-get repository
+apt_update: true
+
+# installs the following packages
+packages:
+  - nginx
+  - nodejs
+  - npm
+  - apache2-utilit
+
+# copys the following files to the given path
+write_files:
+
+  - path: /etc/nginx/.htpasswd
+    content: |
+      const app = require('express')()
+      app.get('/', function (req, res) { res.send('Hello World!') })
+      app.listen(3000)
+
+  - path: /var/www/html/app.js
+    content: |
+      const app = require('express')()
+      app.get('/', function (req, res) { res.send('Hello World!') })
+      app.get('/health', function (req, res) { res.send('ok') })
+      app.listen(3000)
+
+  - path: /var/www/html/package.json
+    content: |
+      {
+        "name": "simple-express",
+        "author": "Joe Cuffney",
+        "dependencies": {
+          "express": "^4.15.4"
+        }
+      }
+
+# copys the following files to the given path
+runcmd:
+
+  ## ###########################################################################
+  ## System commands
+  ## ###########################################################################
+
+  # don't allow root ssh access
+  - sed -i -e '/^Port/s/^.*$/Port 4444/' /etc/ssh/sshd_config
+  - sed -i -e '/^PermitRootLogin/s/^.*$/PermitRootLogin no/' /etc/ssh/sshd_config
+  - sed -i -e '$aAllowUsers jcuffney' /etc/ssh/sshd_config
+  - restart ssh

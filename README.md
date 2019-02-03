@@ -30,3 +30,7 @@ curl --silent https://raw.githubusercontent.com/jwc2790/dotfiles/master/osx/setu
 
 Shell: Bash (can look into improving this with time)
   - look into others, zsh, oh my fish
+
+### Other Requriements
+
+- user-data file for ec2, digital ocean, etc.
