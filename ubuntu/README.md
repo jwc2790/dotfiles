@@ -29,3 +29,4 @@ curl --silent https://raw.githubusercontent.com/jwc2790/dotfiles/master/ubuntu/s
 ## Credits
 
 - https://github.com/Sajjadhosn/dotfiles
+

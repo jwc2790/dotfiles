@@ -34,3 +34,12 @@ Shell: Bash (can look into improving this with time)
 ### Other Requriements
 
 - user-data file for ec2, digital ocean, etc.
+
+## How to factory reset your mac
+
+- backup files
+- restart computer
+- hold cmd + R as the computer boots
+- go to the disk utility
+  - clear drive
+- install macos
