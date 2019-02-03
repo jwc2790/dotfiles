@@ -8,13 +8,13 @@ main() {
     # install the macos package manger; homebrew
     install_homebrew
     # clone the dotfiles repository
-    clone_dotfiles
+    # clone_dotfiles
     # Installing all packages in Dotfiles repository's Brewfile
-    install_packages_with_brewfile
+    # install_packages_with_brewfile
     # Setting up macOS defaults
-    setup_macOS_defaults
+    # setup_macOS_defaults
     # Updating login items
-    update_login_items
+    # update_login_items
     # todo: python via pyenv
     # todo: nodejs via nvm
     # todo: vim
@@ -41,7 +41,9 @@ function install_homebrew() {
     if hash brew 2>/dev/null; then
         success "Homebrew already exists"
     else
-url=https://raw.githubusercontent.com/Sajjadhosn/dotfiles/master/installers/homebrew_installer
+        # what to do if this is already done
+        xcode-select --install
+        ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null
         if /usr/bin/ruby -e "$(curl -fsSL ${url})"; then
             success "Homebrew installation succeeded"
         else
