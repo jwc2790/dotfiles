@@ -10,7 +10,7 @@ main() {
   # clone the dotfiles repository
   clone_dotfiles
   # Installing all packages in Dotfiles repository's Brewfile
-  # install_packages_with_brewfile
+  install_packages_with_brewfile
 }
 
 
