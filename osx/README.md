@@ -7,7 +7,7 @@ curl --silent https://raw.githubusercontent.com/jwc2790/dotfiles/master/osx/setu
 ```
 
 #### Manual Tasks:
-  - [] Login to `1password`
+  - Login to `1password`
   - sign into chrome to sync extensions / plugins
 
 ## Features
