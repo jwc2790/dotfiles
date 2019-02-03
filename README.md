@@ -5,12 +5,8 @@
 ## OSX Mojave
 
 ```
-curl --silent https://raw.githubusercontent.com/jwc2790/dotfiles/master/osx.sh | bash
+curl --silent https://raw.githubusercontent.com/jwc2790/dotfiles/master/osx/setup.sh | bash
 ```
-
-#### Manual Tasks:
-  - [] Login to `1password`
-  - sign into chrome to sync extensions / plugins
 
 ## Goals
 
