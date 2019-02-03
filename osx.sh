@@ -51,8 +51,8 @@ function clone_dotfiles() {
     else
         url=https://github.com/jwc2790/dotfiles.git
         if git clone "$url" $DOTFILES_PATH && \
-           git remote set-url origin git@github.com:jwc2790/dotfiles.git; then
-            success "Dotfiles repository cloned into ${DOTFILES_PATH}"
+           # git remote set-url origin git@github.com:jwc2790/dotfiles.git; then
+           success "Dotfiles repository cloned into ${DOTFILES_PATH}"
         else
             error "Dotfiles repository cloning failed"
             exit 1
