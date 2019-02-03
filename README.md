@@ -24,6 +24,7 @@ curl --silent https://raw.githubusercontent.com/jwc2790/dotfiles/master/osx/setu
 - must not require any input other than initial sudo
 - must be testable in a contained environment
 - must be well documented
+- should be able to be run multiple times so that updates can be easily propogated to multiple machines
 
 ### OS Specific Requirements
 
