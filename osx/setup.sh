@@ -8,13 +8,13 @@ main() {
     # install the macos package manger; homebrew
     install_homebrew
     # clone the dotfiles repository
-    # clone_dotfiles
+    clone_dotfiles
     # Installing all packages in Dotfiles repository's Brewfile
-    # install_packages_with_brewfile
+    install_packages_with_brewfile
     # Setting up macOS defaults
-    # setup_macOS_defaults
+    setup_macOS_defaults
     # Updating login items
-    # update_login_items
+    update_login_items
     # todo: python via pyenv
     # todo: nodejs via nvm
     # todo: vim
