@@ -7,8 +7,8 @@ main() {
   ask_for_sudo
   # install the macos package manger; homebrew
   install_homebrew
-  # clone the dotfiles repo
-  clone_DOTFILES_PATH
+  # clone the dotfiles repository
+  clone_dotfiles
   # Installing all packages in Dotfiles repository's Brewfile
   # install_packages_with_brewfile
 }
@@ -42,7 +42,7 @@ url=https://raw.githubusercontent.com/Sajjadhosn/dotfiles/master/installers/home
     fi
 }
 
-function clone_DOTFILES_PATH() {
+function clone_dotfiles() {
     info "Cloning dotfiles repository into ${DOTFILES_PATH}"
     if test -e $DOTFILES_PATH; then
         substep "${DOTFILES_PATH} already exists"
