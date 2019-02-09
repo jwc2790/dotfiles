@@ -17,6 +17,9 @@ cask "sketch"
 brew "nvm"
 brew "yarn"
 brew "pyenv"
+brew "readline"     # pyenv dependancy
+brew "xz"           # pyenv dependancy 
+brew "zlib"         # pyenv dependancy 
 
 # Dev Tools
 cask "docker"

@@ -11,3 +11,6 @@ code --install-extension dbaeumer.vscode-eslint
 # vim
 # https://marketplace.visualstudio.com/items?itemName=vscodevim.vim
 code --install-extension vscodevim.vim
+
+# applescript language support
+code --install-extension idleberg.applescript

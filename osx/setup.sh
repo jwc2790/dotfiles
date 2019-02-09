@@ -15,13 +15,14 @@ main() {
     setup_macOS_defaults
     # Updating login items
     update_login_items
-    # todo: bashrc, bash_profile
+    # bashrc, bash_profile
     bash_setup
-    # todo: python via pyenv
-    # python_setup
-    # todo: nodejs via nvm
-    # node_setup
-    # todo: vim
+    # python via pyenv
+    python_setup
+    # nodejs via nvm
+    node_setup
+    # vim
+    vim_setup
     # todo: tmux
     # todo: ssh: config, keys
 
@@ -130,28 +131,45 @@ function update_login_items() {
 }
 
 # https://github.com/creationix/nvm
-# function node_setup() {
-#     info "Setting up node stuff"
+function node_setup() {
+    info "Setting up node stuff"
 
-#     if osascript ${DOTFILES_PATH}/osx/src/os/login_items.applescript &> /dev/null; then
-#         success "Set up node stuff successfully"
-#     else
-#         error "Setting up node stuff failed"
-#         exit 1
-#     fi
-# }
+    # https://stackoverflow.com/questions/27651892/homebrew-installs-nvm-but-nvm-cant-be-found-afterwards
+    source $(brew --prefix nvm)/nvm.sh
+
+    VERSIONS=(v8.10.0 --lts)
+
+    for VERSION in $VERSIONS
+    do
+        if [ ! -d "~/.nvm/versions/$VERSION" ]; then
+            info "instaslling node version: $VERSION"
+            nvm install $VERSION
+        else 
+            info "$VERSION already installed."
+        fi
+    done
+
+    success "Set up node stuff successfully"
+}
 
 # https://github.com/pyenv/pyenv
-# function python_setup() {
-#     info "Setting up python stuff"
+function python_setup() {
+    info "Setting up python stuff"
 
-#     if osascript ${DOTFILES_PATH}/osx/src/os/login_items.applescript &> /dev/null; then
-#         success "Set up python stuff successfully"
-#     else
-#         error "Setting up python stuff failed"
-#         exit 1
-#     fi
-# }
+    VERSIONS=(2.7.8 3.7.0)
+
+    for VERSION in $VERSIONS
+    do
+        if [ ! -d "$(pyenv root)/versions/$VERSION" ]; then
+            info "instaslling python version: $VERSION"
+            CFLAGS="-I$(xcrun --show-sdk-path)/usr/include" pyenv install $VERSION
+        else 
+            info "$VERSION already installed."
+        fi
+    done
+
+    success "Set up python stuff successfully"
+}
 
 function install_vs_code_plugins() {
     info "Setting up vscode plugins"
@@ -176,6 +194,14 @@ function bash_setup() {
     source ~/.profile
 
     success "Setting up bash successfully"
+}
+
+function vim_setup() {
+    info "Setting up vim"
+
+    ln -sf "${DOTFILES_PATH}/osx/src/.vimrc" ~/.vimrc
+
+    success "Setting up vim successfully"
 }
 
 function coloredEcho() {
