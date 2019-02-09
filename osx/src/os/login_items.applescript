@@ -1,4 +1,4 @@
-set login_item_list to { "Alfred 3", "Docker", "Spectacle" }
+set login_item_list to { "Alfred 3", "Docker", "Spectacle", "Flux" }
 
 tell application "System Events" to delete every login item
 
