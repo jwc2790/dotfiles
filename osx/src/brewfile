@@ -6,11 +6,11 @@ cask_args appdir: '/Applications'
 tap "caskroom/cask"
 
 # Utilities
-# cask "1password"
+cask "1password"
 cask "flux"
 
 # Design Tools
-# cask "zeplin"
+cask "zeplin"
 cask "sketch"
 
 # Programming Languages
@@ -19,35 +19,29 @@ brew "yarn"
 brew "pyenv"
 
 # Dev Tools
-# cask "docker"
-
-# AWS CLI
-# cask "aws-cliapp"
+cask "docker"
 
 # Productivity Tools
-# cask "alfred"
+cask "alfred"
 cask "spectacle"
 
 # IDE's
-# cask "visual-studio-code"
+cask "visual-studio-code"
 
 # Communication Apps
-# cask "slack"
+cask "slack"
 cask "skype"
 cask "blue-jeans"
 
 # Web Browsers
-# cask "google-chrome"
+cask "google-chrome"
 cask "firefox"
 
 # REST Tools
 cask "postman"
 
-# File Storage
-# cask "google-backup-and-sync"
-
 # Notetaking Apps
-# cask "boostnote"
+cask "boostnote"
 
 # Entertainment
 cask "vlc"

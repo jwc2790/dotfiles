@@ -15,11 +15,18 @@ main() {
     setup_macOS_defaults
     # Updating login items
     update_login_items
+    # todo: bashrc, bash_profile
+    bash_setup
     # todo: python via pyenv
+    # python_setup
     # todo: nodejs via nvm
+    # node_setup
     # todo: vim
     # todo: tmux
+    # todo: ssh: config, keys
+
     # todo: visual studio code plugins, default config
+    install_vs_code_plugins
 }
 
 
@@ -82,7 +89,7 @@ function pull_latest() {
 }
 
 function install_packages_with_brewfile() {
-    BREW_FILE_PATH="${DOTFILES_PATH}/src/brewfile"
+    BREW_FILE_PATH="${DOTFILES_PATH}/osx/src/brewfile"
     info "Installing packages within ${BREW_FILE_PATH}"
     if brew bundle check --file="$BREW_FILE_PATH" &> /dev/null; then
         success "Brewfile's dependencies are already satisfied "
@@ -100,7 +107,7 @@ function setup_macOS_defaults() {
     info "Updating macOS defaults"
 
     current_dir=$(pwd)
-    cd ${DOTFILES_PATH}/src/os
+    cd ${DOTFILES_PATH}/osx/src/os
     if bash defaults.sh; then
         cd $current_dir
         success "macOS defaults updated successfully"
@@ -114,12 +121,61 @@ function setup_macOS_defaults() {
 function update_login_items() {
     info "Updating login items"
 
-    if osascript ${DOTFILES_PATH}/src/os/login_items.applescript &> /dev/null; then
+    if osascript ${DOTFILES_PATH}/osx/src/os/login_items.applescript &> /dev/null; then
         success "Login items updated successfully "
     else
         error "Login items update failed"
         exit 1
     fi
+}
+
+# https://github.com/creationix/nvm
+# function node_setup() {
+#     info "Setting up node stuff"
+
+#     if osascript ${DOTFILES_PATH}/osx/src/os/login_items.applescript &> /dev/null; then
+#         success "Set up node stuff successfully"
+#     else
+#         error "Setting up node stuff failed"
+#         exit 1
+#     fi
+# }
+
+# https://github.com/pyenv/pyenv
+# function python_setup() {
+#     info "Setting up python stuff"
+
+#     if osascript ${DOTFILES_PATH}/osx/src/os/login_items.applescript &> /dev/null; then
+#         success "Set up python stuff successfully"
+#     else
+#         error "Setting up python stuff failed"
+#         exit 1
+#     fi
+# }
+
+function install_vs_code_plugins() {
+    info "Setting up vscode plugins"
+
+    if "${DOTFILES_PATH}/osx/src/vscode-extensions" &> /dev/null; then
+        success "Setting up vscode plugins successfully"
+    else
+        error "Setting up vscode plugins failed"
+        exit 1
+    fi
+}
+
+function bash_setup() {
+    info "Setting up bash"
+
+    ln -sf "${DOTFILES_PATH}/osx/src/.bash_profile" ~/.bash_profile
+    ln -sf "${DOTFILES_PATH}/osx/src/.bashrc" ~/.bashrc
+    ln -sf "${DOTFILES_PATH}/osx/src/.profile" ~/.profile
+
+    source ~/.bash_profile
+    source ~/.bashrc
+    source ~/.profile
+
+    success "Setting up bash successfully"
 }
 
 function coloredEcho() {

@@ -1,0 +1,13 @@
+#! /bin/bash
+
+# python
+# https://marketplace.visualstudio.com/items?itemName=ms-python.python
+code --install-extension ms-python.python
+
+# eslint
+# https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
+code --install-extension dbaeumer.vscode-eslint
+
+# vim
+# https://marketplace.visualstudio.com/items?itemName=vscodevim.vim
+code --install-extension vscodevim.vim
