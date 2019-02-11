@@ -18,8 +18,8 @@ function configure_system() {
 
     # Disable Gatekeeper for getting rid of unknown developers error
     sudo spctl --master-disable
-    # Disable natural scrolling
-    defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
+    # set natural scrolling
+    defaults write NSGlobalDomain com.apple.swipescrolldirection -bool true
     # Disable macOS startup chime sound
     sudo defaults write com.apple.loginwindow LoginHook $LOGIN_HOOK_PATH
     sudo defaults write com.apple.loginwindow LogoutHook $LOGOUT_HOOK_PATH

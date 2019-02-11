@@ -9,6 +9,21 @@ curl --silent https://raw.githubusercontent.com/jwc2790/dotfiles/master/osx/setu
 #### Manual Tasks:
   - Login to `1password`
   - sign into chrome to sync extensions / plugins
+  - Set Chrome as default browser
+  - Certificate for 
+      - Alfred
+      - SketchApp
+  - logout
+      - log back in 
+      - give apps permissions they need
+      - log into docker
+- System Preferences --> Keyboard --> Spotlight - turn off keyboard shortcut so alfred can use it
+- update hot key for alfred
+- `open src/alfred/workflows/github.alfredworkflow`
+- `open src/alfred/workflows/aws.alfredworkflow`
+
+
+
 
 ## Features
 
@@ -33,3 +48,9 @@ curl --silent https://raw.githubusercontent.com/jwc2790/dotfiles/master/osx/setu
 ## Credits
 
 - https://github.com/Sajjadhosn/dotfiles
+
+# TODO:
+- Ssh config
+- item2
+- another shell?
+- aws credentials in `~/.aws`

@@ -14,3 +14,18 @@ code --install-extension vscodevim.vim
 
 # applescript language support
 code --install-extension idleberg.applescript
+
+# latex in vscode
+code --install-extension James-Yu.latex-workshop
+
+# markdown language support
+code --install-extension yzhang.markdown-all-in-one
+
+# docker support
+code --install-extension peterjausovec.vscode-docker
+
+# test explorer
+code --install-extension hbenl.vscode-test-explorer
+
+# plist files
+code --install-extension zhouronghui.propertylist

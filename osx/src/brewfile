@@ -14,15 +14,21 @@ cask "zeplin"
 cask "sketch"
 
 # Programming Languages
-brew "nvm"
-brew "yarn"
-brew "pyenv"
+brew "nvm"          # node
+brew "yarn"         # node peer
+
+brew "pyenv"        # python
 brew "readline"     # pyenv dependancy
 brew "xz"           # pyenv dependancy 
-brew "zlib"         # pyenv dependancy 
+brew "zlib"         # pyenv dependanc
 
 # Dev Tools
 cask "docker"
+brew "tmux"
+brew 
+
+# MacTex - for tex typesetting
+cask "mactex-no-gui"
 
 # Productivity Tools
 cask "alfred"

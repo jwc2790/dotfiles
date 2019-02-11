@@ -24,10 +24,10 @@ main() {
     # vim
     vim_setup
     # todo: tmux
-    # todo: ssh: config, keys
-
-    # todo: visual studio code plugins, default config
+    tmux_setup
+    # visual studio code plugins, default config
     install_vs_code_plugins
+    # todo: ssh: config, keys
 }
 
 
@@ -202,6 +202,14 @@ function vim_setup() {
     ln -sf "${DOTFILES_PATH}/osx/src/.vimrc" ~/.vimrc
 
     success "Setting up vim successfully"
+}
+
+function tmux_setup() {
+    info "Setting up tmux"
+
+    ln -sf "${DOTFILES_PATH}/osx/src/.tmux.conf" ~/.tmux.conf
+
+    success "Setting up tmux successfully"
 }
 
 function coloredEcho() {
