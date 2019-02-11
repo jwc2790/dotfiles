@@ -25,7 +25,6 @@ brew "zlib"         # pyenv dependanc
 # Dev Tools
 cask "docker"
 brew "tmux"
-brew 
 
 # MacTex - for tex typesetting
 cask "mactex-no-gui"
