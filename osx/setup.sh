@@ -219,8 +219,6 @@ function tmux_setup() {
 function ssh_setup() {
     info "Setting up ssh keys"
 
-    ln -sf "${DOTFILES_PATH}/osx/src/tmux/.tmux.conf" ~/.tmux.conf
-
     success "Set up ssh keys sussessfully"
 }
 

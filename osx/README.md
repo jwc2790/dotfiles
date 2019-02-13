@@ -29,7 +29,7 @@ curl --silent https://raw.githubusercontent.com/jwc2790/dotfiles/master/osx/setu
 
 | Shell             | Bash       |
 |-------------------|------------|
-| Installation Time | 30 minutes |
+| Installation Time | 15 minutes |
 | Package Manager   | HomeBrew   |
 | Window Manager    | Specticle  |
 | Spotlight Search  | Alfred 3   |
