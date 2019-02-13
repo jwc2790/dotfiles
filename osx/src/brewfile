@@ -12,6 +12,7 @@ cask "flux"
 # Design Tools
 cask "zeplin"
 cask "sketch"
+cask "omnigraffle"
 
 # Programming Languages
 brew "nvm"          # node
