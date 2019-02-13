@@ -26,10 +26,10 @@ main() {
     # todo: tmux
     tmux_setup
     # visual studio code plugins, default config
-    install_vs_code_plugins
-    # todo: ssh: config, keys
+    install_vs_code_extensions
+    # # todo: ssh: config, keys
+    # ssh_setup
 }
-
 
 function ask_for_sudo() {
     info "Prompting for sudo password"
@@ -171,23 +171,24 @@ function python_setup() {
     success "Set up python stuff successfully"
 }
 
-function install_vs_code_plugins() {
-    info "Setting up vscode plugins"
+function install_vs_code_extensions() {
+    info "Setting up vscode extensions"
 
-    if "${DOTFILES_PATH}/osx/src/vscode-extensions" &> /dev/null; then
-        success "Setting up vscode plugins successfully"
+    if "${DOTFILES_PATH}/osx/src/vscode/extensions" &> /dev/null; then
+        success "Setting up vscode extensions successfully"
     else
-        error "Setting up vscode plugins failed"
+        error "Set up vscode extensions failed"
         exit 1
     fi
 }
 
+# TODO: create conditionally
 function bash_setup() {
     info "Setting up bash"
 
-    ln -sf "${DOTFILES_PATH}/osx/src/.bash_profile" ~/.bash_profile
-    ln -sf "${DOTFILES_PATH}/osx/src/.bashrc" ~/.bashrc
-    ln -sf "${DOTFILES_PATH}/osx/src/.profile" ~/.profile
+    ln -sf "${DOTFILES_PATH}/osx/src/bash/.bash_profile" ~/.bash_profile
+    ln -sf "${DOTFILES_PATH}/osx/src/bash/.bashrc" ~/.bashrc
+    ln -sf "${DOTFILES_PATH}/osx/src/bash/.profile" ~/.profile
 
     source ~/.bash_profile
     source ~/.bashrc
@@ -196,20 +197,31 @@ function bash_setup() {
     success "Setting up bash successfully"
 }
 
+# TODO: create conditionally
 function vim_setup() {
     info "Setting up vim"
 
-    ln -sf "${DOTFILES_PATH}/osx/src/.vimrc" ~/.vimrc
+    ln -sf "${DOTFILES_PATH}/osx/src/vim/.vimrc" ~/.vimrc
 
     success "Setting up vim successfully"
 }
 
+# TODO: create conditionally
 function tmux_setup() {
     info "Setting up tmux"
 
-    ln -sf "${DOTFILES_PATH}/osx/src/.tmux.conf" ~/.tmux.conf
+    ln -sf "${DOTFILES_PATH}/osx/src/tmux/.tmux.conf" ~/.tmux.conf
 
-    success "Setting up tmux successfully"
+    success "Set up tmux successfully"
+}
+
+# TODO: create conditionally
+function ssh_setup() {
+    info "Setting up ssh keys"
+
+    ln -sf "${DOTFILES_PATH}/osx/src/tmux/.tmux.conf" ~/.tmux.conf
+
+    success "Set up ssh keys sussessfully"
 }
 
 function coloredEcho() {

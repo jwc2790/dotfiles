@@ -13,19 +13,29 @@ code --install-extension dbaeumer.vscode-eslint
 code --install-extension vscodevim.vim
 
 # applescript language support
+# https://marketplace.visualstudio.com/items?itemName=idleberg.applescript
 code --install-extension idleberg.applescript
 
 # latex in vscode
+# https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop
 code --install-extension James-Yu.latex-workshop
 
 # markdown language support
+# https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one
 code --install-extension yzhang.markdown-all-in-one
 
 # docker support
+# https://marketplace.visualstudio.com/items?itemName=dunstontc.vscode-docker-syntax
 code --install-extension peterjausovec.vscode-docker
 
 # test explorer
+# https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-test-explorer
 code --install-extension hbenl.vscode-test-explorer
 
 # plist files
+# https://marketplace.visualstudio.com/items?itemName=zhouronghui.propertylist
 code --install-extension zhouronghui.propertylist
+
+# vscode live share
+# https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare
+code --install-extension ms-vsliveshare.vsliveshare

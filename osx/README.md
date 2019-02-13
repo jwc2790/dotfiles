@@ -54,3 +54,9 @@ curl --silent https://raw.githubusercontent.com/jwc2790/dotfiles/master/osx/setu
 - item2
 - another shell?
 - aws credentials in `~/.aws`
+
+# Notes:
+
+- vim plugins might require linters/packages to be globally installed
+  - estlint
+  - pylint
