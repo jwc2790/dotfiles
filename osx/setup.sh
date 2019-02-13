@@ -23,12 +23,12 @@ main() {
     node_setup
     # vim
     vim_setup
-    # todo: tmux
+    # tmux
     tmux_setup
     # visual studio code plugins, default config
     install_vs_code_extensions
-    # # todo: ssh: config, keys
-    # ssh_setup
+    # ssh: config, keys
+    ssh_setup
 }
 
 function ask_for_sudo() {
@@ -149,6 +149,11 @@ function node_setup() {
         fi
     done
 
+    # install typescript
+    npm install -g typescript
+    npm install -g create-react-app
+    npm install -g eslint
+
     success "Set up node stuff successfully"
 }
 
@@ -201,7 +206,15 @@ function bash_setup() {
 function vim_setup() {
     info "Setting up vim"
 
+    # install vim-plug as a plugin manager
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+    # link in vim configuration files
     ln -sf "${DOTFILES_PATH}/osx/src/vim/.vimrc" ~/.vimrc
+    ln -sf "${DOTFILES_PATH}/osx/src/vim/plugins" ~/.vim/plugins
+
+    # Install Plugins
+    vim +PlugInstall +qall
 
     success "Setting up vim successfully"
 }
@@ -217,9 +230,17 @@ function tmux_setup() {
 
 # TODO: create conditionally
 function ssh_setup() {
-    info "Setting up ssh keys"
+    info "Setting up ssh key"
 
-    success "Set up ssh keys sussessfully"
+    FILE="$HOME/.ssh/id_rsa.pub"
+    if [ ! -f "$FILE" ]; then
+        substep "no ssh key found - creating ssh keys"
+        ssh-keygen -t rsa
+        success "Set up ssh key sussessfully"
+    else
+        success "ssh key already exist"
+    fi
+
 }
 
 function coloredEcho() {

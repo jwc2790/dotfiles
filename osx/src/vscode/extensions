@@ -39,3 +39,7 @@ code --install-extension zhouronghui.propertylist
 # vscode live share
 # https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare
 code --install-extension ms-vsliveshare.vsliveshare
+
+# viml file
+# https://marketplace.visualstudio.com/items?itemName=fallenwood.vimL
+code --isntall-extension fallenwood.viml

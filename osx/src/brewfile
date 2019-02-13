@@ -1,56 +1,114 @@
+# ------------------------------------------------------------------------------
 # Installs OSX applications via Homebrew
+# ------------------------------------------------------------------------------
 
 # specify a directory to install
 cask_args appdir: '/Applications'
 
 tap "caskroom/cask"
 
-# Utilities
-cask "1password"
-cask "flux"
-
-# Design Tools
+# ------------------------------------------------------------------------------
+# Design Tooling
+# ------------------------------------------------------------------------------
 cask "zeplin"
 cask "sketch"
 cask "omnigraffle"
 
-# Programming Languages
-brew "nvm"          # node
+# Adobe tools
+cask "adobe-creative-cloud"
+
+# ------------------------------------------------------------------------------
+# Languages
+# ------------------------------------------------------------------------------
+
+## NodeJS
+brew "nvm"          # node version manager
 brew "yarn"         # node peer
 
-brew "pyenv"        # python
+# Python
+brew "pyenv"        # python environment manager
 brew "readline"     # pyenv dependancy
 brew "xz"           # pyenv dependancy 
-brew "zlib"         # pyenv dependanc
+brew "zlib"         # pyenv dependancy
 
-# Dev Tools
+# R
+brew "r"            # R
+
+# Java
+brew "jenv"         # Java environment manager
+cask "java"         # latest version of java
+cask "java6"
+
+# Scala
+brew "scala"
+brew "sbt"
+
+# Go
+brew "golang"
+
+# ------------------------------------------------------------------------------
+# Development Tooling
+# ------------------------------------------------------------------------------
 cask "docker"
 brew "tmux"
+cask "iterm2"
+brew "bash-completion"
 
-# MacTex - for tex typesetting
+# ------------------------------------------------------------------------------
+# TypeSetting
+# ------------------------------------------------------------------------------
 cask "mactex-no-gui"
 
-# Productivity Tools
+# ------------------------------------------------------------------------------
+# Productivity
+# ------------------------------------------------------------------------------
 cask "alfred"
 cask "spectacle"
+cask "microsoft-office"
+cask "airmail-beta"
+cask "1password"
+cask "flux"
 
-# IDE's
-cask "visual-studio-code"
+# ------------------------------------------------------------------------------
+# IDE
+# ------------------------------------------------------------------------------
+cask "visual-studio-code" 
+cask "intellij-idea"
+cask "atom"
 
-# Communication Apps
+# ------------------------------------------------------------------------------
+# Database
+# ------------------------------------------------------------------------------
+brew "mysql"
+brew "postgres"
+cask "sequel-pro"
+
+# ------------------------------------------------------------------------------
+# Communication
+# ------------------------------------------------------------------------------
 cask "slack"
 cask "skype"
 cask "blue-jeans"
 
+# ------------------------------------------------------------------------------
 # Web Browsers
+# ------------------------------------------------------------------------------
 cask "google-chrome"
 cask "firefox"
 
+# ------------------------------------------------------------------------------
 # REST Tools
+# ------------------------------------------------------------------------------
 cask "postman"
+cask "wireshark"
 
+# ------------------------------------------------------------------------------
 # Notetaking Apps
+# ------------------------------------------------------------------------------
 cask "boostnote"
+cask "evernote"
 
+# ------------------------------------------------------------------------------
 # Entertainment
+# ------------------------------------------------------------------------------
 cask "vlc"
