@@ -232,6 +232,8 @@ function tmux_setup() {
 function ssh_setup() {
     info "Setting up ssh key"
 
+    ln -sf "${DOTFILES_PATH}/osx/src/ssh/config" ~/.ssh/config
+
     FILE="$HOME/.ssh/id_rsa.pub"
     if [ ! -f "$FILE" ]; then
         substep "no ssh key found - creating ssh keys"
