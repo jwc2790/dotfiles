@@ -29,6 +29,8 @@ main() {
     install_vs_code_extensions
     # ssh: config, keys
     ssh_setup
+    # aws
+    aws_setup
 }
 
 function ask_for_sudo() {
@@ -243,6 +245,20 @@ function ssh_setup() {
         success "ssh key already exist"
     fi
 
+}
+
+# aws
+function aws_setup() {
+    info "setting up aws"
+
+    if [ ! -d "~/.aws" ]; then
+      mkdir ~/.aws > /dev/null
+      cp "${DOTFILES_PATH}/osx/src/aws/config" ~/.aws/config 
+      cp "${DOTFILES_PATH}/osx/src/aws/credentials" ~/.aws/credentials
+      success "set up aws...you'll want to fill in your config and credentials"
+    else
+      success "looks like you already have a .aws directory"
+    fi
 }
 
 function coloredEcho() {

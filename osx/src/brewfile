@@ -37,7 +37,6 @@ brew "r"            # R
 # Java
 brew "jenv"         # Java environment manager
 cask "java"         # latest version of java
-cask "java6"
 
 # Scala
 brew "scala"
@@ -65,7 +64,6 @@ cask "mactex-no-gui"
 cask "alfred"
 cask "spectacle"
 cask "microsoft-office"
-cask "airmail-beta"
 cask "1password"
 cask "flux"
 
