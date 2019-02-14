@@ -23,5 +23,8 @@ syntax on         " enable syntax highlighting
 " source vim-plug plugins
 so ~/.vim/plugins
 
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
 " fixes issue where nerdtree was putting ^g before all filenames
 let g:NERDTreeNodeDelimiter = "\u00a0"
