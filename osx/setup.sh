@@ -7,7 +7,7 @@ main() {
     ask_for_sudo
     # install the macos package manger; homebrew
     install_homebrew
-    # clone the dotfiles repository
+    # clone the otfiles repository
     clone_dotfiles
     # Installing all packages in Dotfiles repository's Brewfile
     install_packages_with_brewfile
@@ -225,12 +225,27 @@ function vim_setup() {
 function tmux_setup() {
     info "Setting up tmux"
 
+    TPM_PATH=~/.tmux/plugins/tpm
+    if test -e $TPM_PATH; then
+        substep "${TPM_PATH} already exists"
+        pull_latest $TPM_PATH
+        success "Pull successful in ${TPM_PATH} repository"
+    else
+        url=https://github.com/tmux-plugins/tpm
+        if git clone "$url" $TPM_PATH && \
+           git remote set-url origin git@github.com:tmux-plugins/tpm.git; then
+           success "Dotfiles repository cloned into ${DOTFILES_PATH}"
+        else
+            error "Dotfiles repository cloning failed"
+            exit 1
+        fi
+    fi
+
     ln -sf "${DOTFILES_PATH}/osx/src/tmux/.tmux.conf" ~/.tmux.conf
 
     success "Set up tmux successfully"
 }
 
-# TODO: create conditionally
 function ssh_setup() {
     info "Setting up ssh key"
 
@@ -250,11 +265,13 @@ function ssh_setup() {
 # aws
 function aws_setup() {
     info "setting up aws"
-
     if [ ! -d "~/.aws" ]; then
-      mkdir ~/.aws > /dev/null
-      cp "${DOTFILES_PATH}/osx/src/aws/config" ~/.aws/config 
-      cp "${DOTFILES_PATH}/osx/src/aws/credentials" ~/.aws/credentials
+      mkdir -p ~/.aws
+      if [ ! -f "~/.aws/config " ]; then
+        cp "${DOTFILES_PATH}/osx/src/aws/config" ~/.aws/config 
+      elif [ ! -f "~/.aws/credentials" ]; then
+        cp "${DOTFILES_PATH}/osx/src/aws/credentials" ~/.aws/credentials
+      fi
       success "set up aws...you'll want to fill in your config and credentials"
     else
       success "looks like you already have a .aws directory"
