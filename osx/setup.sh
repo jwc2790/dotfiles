@@ -31,6 +31,8 @@ main() {
     ssh_setup
     # aws
     aws_setup
+    # git config
+    git_config
 }
 
 function ask_for_sudo() {
@@ -278,6 +280,12 @@ function aws_setup() {
     fi
 }
 
+# gitconfig
+function git_config() {
+    info "setting up gitconfig"
+    ln -sf "${DOTFILES_PATH}/osx/src/git/.gitconfig" ~/.gitconfig
+    success "set up gitconfig files"
+}
 function coloredEcho() {
     local exp="$1";
     local color="$2";
