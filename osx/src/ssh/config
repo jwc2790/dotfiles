@@ -1,4 +1,4 @@
-Host gondor
-  Hostname: cuffney.com
-  Port: 22
-  User: jcuffney
+# Host gondor
+#   Hostname: cuffney.com
+#   Port: 22
+#   User: jcuffney
