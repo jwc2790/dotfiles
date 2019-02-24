@@ -52,6 +52,7 @@ cask "docker"
 brew "tmux"
 cask "iterm2"
 brew "bash-completion"
+brew "watchman"
 
 # ------------------------------------------------------------------------------
 # TypeSetting
