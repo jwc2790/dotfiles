@@ -31,6 +31,8 @@ main() {
     ssh_setup
     # aws
     aws_setup
+    # git config
+    git_config
 }
 
 function ask_for_sudo() {
@@ -257,7 +259,7 @@ function ssh_setup() {
     FILE="$HOME/.ssh/id_rsa.pub"
     if [ ! -f "$FILE" ]; then
         substep "no ssh key found - creating ssh keys"
-        ssh-keygen -t rsa
+        ssh-keygen -t rsa -b 4096 -C "josephcuffney@gmail.com"
         success "Set up ssh key sussessfully"
     else
         success "ssh key already exist"
@@ -281,6 +283,12 @@ function aws_setup() {
     fi
 }
 
+# gitconfig
+function git_config() {
+    info "setting up gitconfig"
+    ln -sf "${DOTFILES_PATH}/osx/src/git/.gitconfig" ~/.gitconfig
+    success "set up gitconfig files"
+}
 function coloredEcho() {
     local exp="$1";
     local color="$2";
