@@ -35,3 +35,9 @@ eval "$(jenv init -)"
 # ------------------------------------------------------------------------------
 
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+
+# ------------------------------------------------------------------------------
+# aws region default... (some api's don't read the default `~/.aws/config` file) 
+# ------------------------------------------------------------------------------
+
+export AWS_REGION=us-east-1
