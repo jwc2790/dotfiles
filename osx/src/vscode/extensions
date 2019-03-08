@@ -43,3 +43,7 @@ code --install-extension ms-vsliveshare.vsliveshare
 # viml file
 # https://marketplace.visualstudio.com/items?itemName=fallenwood.vimL
 code --isntall-extension fallenwood.viml
+
+# terraform files tf files
+# https://marketplace.visualstudio.com/items?itemName=mauve.terraform
+code --install-extension mauve.terraform

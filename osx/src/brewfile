@@ -54,6 +54,8 @@ cask "iterm2"
 brew "bash-completion"
 brew "watchman"
 brew "selenium-server-standalone"
+brew "terraform"
+brew "circleci"
 
 # ------------------------------------------------------------------------------
 # TypeSetting

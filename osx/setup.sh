@@ -177,6 +177,9 @@ function python_setup() {
         fi
     done
 
+    # install pylint globally for vim to use
+    pip install pylint
+
     success "Set up python stuff successfully"
 }
 
