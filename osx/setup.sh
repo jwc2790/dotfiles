@@ -278,6 +278,8 @@ function aws_setup() {
     else
       success "looks like you already have a .aws directory"
     fi
+
+    pip install awscli
 }
 
 # gitconfig
