@@ -117,4 +117,4 @@ cask "evernote"
 # ------------------------------------------------------------------------------
 cask "vlc"
 cask "plex-media-server"
-cask "utorrent"
+cask "transmission"
