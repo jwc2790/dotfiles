@@ -157,6 +157,7 @@ function node_setup() {
     npm install -g typescript
     npm install -g create-react-app
     npm install -g eslint
+    npm install -g @angular/cli
 
     success "Set up node stuff successfully"
 }
